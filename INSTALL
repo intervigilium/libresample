@@ -1,0 +1,14 @@
+This project requires:
+Android SDK
+Android NDK
+
+This project does not contain the shared libraries for LAME.
+In order to build them, you must first install the Android NDK from:
+http://developer.android.com/sdk/ndk/index.html
+Installing the Android NDK is beyond the scope of this INSTALL file.
+
+To build the libraries you must go to /path/to/libresample and issue the command:
+/path/to/ndk-build 
+
+The NDK builder will compile the shared libraries and place them in the 
+libresample/libs directory for use by other dependant projects.

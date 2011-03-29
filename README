@@ -1,0 +1,10 @@
+This project is licensed under LGPLv2.1, for further licensing information see
+the LICENSE file.
+
+Build Instructions:
+For help building the native resample library, please consult the INSTALL file.
+
+Known Issues:
+
+This project is based off libresample and resample available from:
+https://ccrma.stanford.edu/~jos/resample/Free_Resampling_Software.html

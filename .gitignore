@@ -1,0 +1,11 @@
+bin/*
+gen/*
+libs/armeabi*
+obj/*
+keys
+market/*
+*.apk
+*.iws
+*.ipr
+*.iml
+local.properties
