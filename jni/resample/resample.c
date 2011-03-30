@@ -27,7 +27,7 @@
 #include <string.h>
 #include "resample.h"
 
-#define IBUFFSIZE 4096		/* Input buffer size */
+#define IBUFFSIZE 4096		/* default input buffer size */
 
 static inline short WordToHword(int v, int scl)
 {
@@ -72,7 +72,7 @@ static int SrcLinear(short X[], short Y[], double factor, unsigned int *Time,
 	return (Y - Ystart);	/* Return number of output samples */
 }
 
-struct rs_data *resample_init(int in_rate, int out_rate)
+struct rs_data *resample_init(int in_rate, int out_rate, int buffer_size)
 {
 	struct rs_data *rs;
 
@@ -90,7 +90,7 @@ struct rs_data *resample_init(int in_rate, int out_rate)
 	rs->in_buf_read = rs->in_buf_offset;
 	rs->time = (rs->in_buf_offset << FP_FACTOR);
 
-	rs->in_buf_size = IBUFFSIZE;
+	rs->in_buf_size = buffer_size;
 	rs->out_buf_size =
 	    (int)(((double)(rs->in_buf_size)) * rs->factor + 2.0);
 
