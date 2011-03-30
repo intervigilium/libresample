@@ -9,7 +9,7 @@ public class Resample {
     
     public static native void downsample(short outputBuffer[], short inputLeft[], short inputRight[]);
     
-    public static native void initialize(int inputRate, int outputRate, int channels);
+    public static native void initialize(int inputRate, int outputRate, int bufferSize, int channels);
     
     public static native int process(short inputBuffer[], short outputBuffer[], boolean isLast);
     
