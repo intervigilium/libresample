@@ -9,6 +9,8 @@ extern "C" {
 #endif
 #undef net_sourceforge_resample_Resample_MAX_CHANNELS
 #define net_sourceforge_resample_Resample_MAX_CHANNELS 2L
+#undef net_sourceforge_resample_Resample_CHANNEL_MONO
+#define net_sourceforge_resample_Resample_CHANNEL_MONO 0L
 #undef net_sourceforge_resample_Resample_CHANNEL_LEFT
 #define net_sourceforge_resample_Resample_CHANNEL_LEFT 0L
 #undef net_sourceforge_resample_Resample_CHANNEL_RIGHT
