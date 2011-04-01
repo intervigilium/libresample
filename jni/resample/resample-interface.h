@@ -16,10 +16,10 @@ extern "C" {
 /*
  * Class:     net_sourceforge_resample_Resample
  * Method:    downsample
- * Signature: ([S[S[S)V
+ * Signature: ([S[S[SI)V
  */
 JNIEXPORT void JNICALL Java_net_sourceforge_resample_Resample_downsample
-  (JNIEnv *, jclass, jshortArray, jshortArray, jshortArray);
+  (JNIEnv *, jclass, jshortArray, jshortArray, jshortArray, jint);
 
 /*
  * Class:     net_sourceforge_resample_Resample

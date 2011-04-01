@@ -39,21 +39,19 @@ downMix(short *out, short *pcm_left, short *pcm_right, int len) {
 }
 
 JNIEXPORT void JNICALL Java_net_sourceforge_resample_Resample_downsample
-  (JNIEnv *env, jclass class, jshortArray outputBuffer, jshortArray inputLeft, jshortArray inputRight)
+  (JNIEnv *env, jclass class, jshortArray outputBuffer, jshortArray inputLeft, jshortArray inputRight, jint numSamples)
 {
-    int len;
     short *input_left, *input_right, *output_buf;
 
-    len = (*env)->GetArrayLength(env, inputLeft);
-    output_buf = calloc(len, sizeof(short));
+    output_buf = calloc(numSamples, sizeof(short));
 
     input_left = (short *) (*env)->GetPrimitiveArrayCritical(env, inputLeft, 0);
     input_right = (short *) (*env)->GetPrimitiveArrayCritical(env, inputRight, 0);
-    downMix(output_buf, input_left, input_right, len);
+    downMix(output_buf, input_left, input_right, numSamples);
     (*env)->ReleasePrimitiveArrayCritical(env, inputLeft, input_left, 0);
     (*env)->ReleasePrimitiveArrayCritical(env, inputRight, input_right, 0);
 
-    (*env)->SetShortArrayRegion(env, outputBuffer, 0, len, output_buf);
+    (*env)->SetShortArrayRegion(env, outputBuffer, 0, numSamples, output_buf);
 }
 
 JNIEXPORT void JNICALL Java_net_sourceforge_resample_Resample_initialize

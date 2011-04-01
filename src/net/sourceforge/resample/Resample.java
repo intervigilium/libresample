@@ -12,7 +12,7 @@ public class Resample {
         System.loadLibrary(RESAMPLE_LIB);
     }
     
-    public static native void downsample(short outputBuffer[], short inputLeft[], short inputRight[]);
+    public static native void downsample(short outputBuffer[], short inputLeft[], short inputRight[], int numSamples);
     
     public static native void initialize(int inputRate, int outputRate, int bufferSize, int channels);
     
