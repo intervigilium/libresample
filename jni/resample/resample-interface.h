@@ -7,6 +7,12 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+#undef net_sourceforge_resample_Resample_MAX_CHANNELS
+#define net_sourceforge_resample_Resample_MAX_CHANNELS 2L
+#undef net_sourceforge_resample_Resample_CHANNEL_LEFT
+#define net_sourceforge_resample_Resample_CHANNEL_LEFT 0L
+#undef net_sourceforge_resample_Resample_CHANNEL_RIGHT
+#define net_sourceforge_resample_Resample_CHANNEL_RIGHT 1L
 /*
  * Class:     net_sourceforge_resample_Resample
  * Method:    downsample
@@ -26,10 +32,10 @@ JNIEXPORT void JNICALL Java_net_sourceforge_resample_Resample_initialize
 /*
  * Class:     net_sourceforge_resample_Resample
  * Method:    process
- * Signature: ([S[SZ)I
+ * Signature: ([S[SIZ)I
  */
 JNIEXPORT jint JNICALL Java_net_sourceforge_resample_Resample_process
-  (JNIEnv *, jclass, jshortArray, jshortArray, jboolean);
+  (JNIEnv *, jclass, jshortArray, jshortArray, jint, jboolean);
 
 /*
  * Class:     net_sourceforge_resample_Resample

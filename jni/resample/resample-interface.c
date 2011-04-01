@@ -27,9 +27,6 @@
 #include <string.h>
 #include <android/log.h>
 
-#define L_CHANNEL 0
-#define R_CHANNEL 1
-
 static int num_channels;
 static struct rs_data **rs;
 
@@ -76,17 +73,21 @@ JNIEXPORT void JNICALL Java_net_sourceforge_resample_Resample_initialize
 }
 
 JNIEXPORT jint JNICALL Java_net_sourceforge_resample_Resample_process
-  (JNIEnv *env, jclass class, jshortArray inputBuffer, jshortArray outputBuffer, jboolean isLast)
+  (JNIEnv *env, jclass class, jshortArray inputBuffer, jshortArray outputBuffer, jint channel, jboolean isLast)
 {
     int i, in_len, out_len, res;
     short *in_buf, *out_buf;
+
+    if (channel >= net_sourceforge_resample_Resample_MAX_CHANNELS) {
+        return -1;
+    }
 
     in_len = (*env)->GetArrayLength(env, inputBuffer);
     out_len = (*env)->GetArrayLength(env, outputBuffer);
     in_buf = (short *)(*env)->GetPrimitiveArrayCritical(env, inputBuffer, 0); 
     out_buf = calloc(out_len, sizeof(short));
 
-    res = resample(rs, in_buf, in_len, out_buf, out_len, last);
+    res = resample(rs[channel], in_buf, in_len, out_buf, out_len, isLast);
     (*env)->SetShortArrayRegion(env, outputBuffer, 0, out_len, out_buf);
     (*env)->ReleasePrimitiveArrayCritical(env, inputBuffer, in_buf, 0);
 
