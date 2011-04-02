@@ -106,6 +106,7 @@ JNIEXPORT void JNICALL Java_net_sourceforge_resample_Resample_close
 			resample_close(rs[i]);
 		}
 		free(rs);
+		rs = NULL;
 		num_channels = 0;
 	}
 }
