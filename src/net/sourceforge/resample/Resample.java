@@ -2,6 +2,7 @@ package net.sourceforge.resample;
 
 public class Resample {
 
+    public static final int DEFAULT_BUFFER_SIZE = 4096;
     public static final int MAX_CHANNELS = 2;
     public static final int CHANNEL_MONO = 0;
     public static final int CHANNEL_LEFT = 0;

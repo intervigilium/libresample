@@ -7,6 +7,8 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+#undef net_sourceforge_resample_Resample_DEFAULT_BUFFER_SIZE
+#define net_sourceforge_resample_Resample_DEFAULT_BUFFER_SIZE 4096L
 #undef net_sourceforge_resample_Resample_MAX_CHANNELS
 #define net_sourceforge_resample_Resample_MAX_CHANNELS 2L
 #undef net_sourceforge_resample_Resample_CHANNEL_MONO
