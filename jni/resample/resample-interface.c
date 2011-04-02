@@ -69,8 +69,8 @@ JNIEXPORT void JNICALL Java_net_sourceforge_resample_Resample_initialize
 			    resample_init(inputRate, outputRate, bufferSize);
 		}
 	} else {
-		/* log it */
-
+		__android_log_print(ANDROID_LOG_DEBUG, "libresample.so",
+				    "Unable to initialize libresample");
 	}
 }
 
