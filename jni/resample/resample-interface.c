@@ -80,7 +80,15 @@ JNIEXPORT jint JNICALL Java_net_sourceforge_resample_Resample_process
 	int i, in_len, out_len, res;
 	short *in_buf, *out_buf;
 
+	if (!rs) {
+		__android_log_print(ANDROID_LOG_DEBUG, "libresample.so",
+				    "No suitable resample instance found!");
+		return -1;
+	}
+
 	if (channel >= net_sourceforge_resample_Resample_MAX_CHANNELS) {
+		__android_log_print(ANDROID_LOG_DEBUG, "libresample.so",
+				    "Resample supports stereo, mono only!");
 		return -1;
 	}
 
