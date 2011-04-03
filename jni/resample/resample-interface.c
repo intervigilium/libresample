@@ -38,7 +38,7 @@ static void downMix(short *out, short *pcm_left, short *pcm_right, int len)
 	}
 }
 
-JNIEXPORT void JNICALL Java_net_sourceforge_resample_Resample_downsample
+JNIEXPORT void JNICALL Java_net_sourceforge_resample_Resample_downmix
     (JNIEnv * env, jclass class, jshortArray outputBuffer,
      jshortArray inputLeft, jshortArray inputRight, jint numSamples) {
 	short *input_left, *input_right, *output_buf;

@@ -14,7 +14,7 @@ public class Resample {
         System.loadLibrary(RESAMPLE_LIB);
     }
 
-    public static native void downsample(short outputBuffer[], short inputLeft[], short inputRight[], int numSamples);
+    public static native void downmix(short outputBuffer[], short inputLeft[], short inputRight[], int numSamples);
 
     public static native int resample(double factor, short inputBuffer[], short outputBuffer[], int numSamples);
 

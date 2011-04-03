@@ -19,10 +19,10 @@ extern "C" {
 #define net_sourceforge_resample_Resample_CHANNEL_RIGHT 1L
 /*
  * Class:     net_sourceforge_resample_Resample
- * Method:    downsample
+ * Method:    downmix
  * Signature: ([S[S[SI)V
  */
-JNIEXPORT void JNICALL Java_net_sourceforge_resample_Resample_downsample
+JNIEXPORT void JNICALL Java_net_sourceforge_resample_Resample_downmix
   (JNIEnv *, jclass, jshortArray, jshortArray, jshortArray, jint);
 
 /*
