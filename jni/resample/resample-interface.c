@@ -61,6 +61,23 @@ JNIEXPORT void JNICALL Java_net_sourceforge_resample_Resample_downsample
 	(*env)->ReleasePrimitiveArrayCritical(env, outputBuffer, output_buf, 0);
 }
 
+JNIEXPORT jint JNICALL Java_net_sourceforge_resample_Resample_resample
+  (JNIEnv *env, jclass class, jdouble factor, jshortArray inputBuffer, jshortArray outputBuffer, jint numSamples)
+{
+    int num;
+    short *in_buf, *out_buf;
+
+    in_buf = (short *)(*env)->GetPrimitiveArrayCritical(env, inputBuffer, 0);
+    out_buf = (short *)(*env)->GetPrimitiveArrayCritical(env, outputBuffer, 0);
+
+    num = resample_simple(factor, in_buf, out_buf, numSamples);
+
+    (*env)->ReleasePrimitiveArrayCritical(env, inputBuffer, in_buf, JNI_ABORT);
+    (*env)->ReleasePrimitiveArrayCritical(env, outputBuffer, out_buf, 0);
+
+    return num;
+}
+
 JNIEXPORT void JNICALL Java_net_sourceforge_resample_Resample_initialize
     (JNIEnv * env, jclass class, jint inputRate, jint outputRate,
      jint bufferSize, jint channels) {

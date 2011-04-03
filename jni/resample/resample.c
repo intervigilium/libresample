@@ -72,6 +72,18 @@ static int SrcLinear(short X[], short Y[], double factor, unsigned int *Time,
 	return (Y - Ystart);	/* Return number of output samples */
 }
 
+int
+resample_simple(double factor, short *in_buf, short *out_buf, int buffer_size)
+{
+    int num;
+    int time;
+
+    time = (10 << FP_DIGITS);
+    num = SrcLinear(in_buf, out_buf, factor, &time, buffer_size);
+
+    return num;
+}
+
 struct rs_data *resample_init(int in_rate, int out_rate, int buffer_size)
 {
 	struct rs_data *rs;

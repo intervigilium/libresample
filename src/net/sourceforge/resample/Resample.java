@@ -16,6 +16,8 @@ public class Resample {
 
     public static native void downsample(short outputBuffer[], short inputLeft[], short inputRight[], int numSamples);
 
+    public static native int resample(double factor, short inputBuffer[], short outputBuffer[], int numSamples);
+
     public static native void initialize(int inputRate, int outputRate, int bufferSize, int channels);
 
     public static native double getFactor();

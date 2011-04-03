@@ -27,6 +27,14 @@ JNIEXPORT void JNICALL Java_net_sourceforge_resample_Resample_downsample
 
 /*
  * Class:     net_sourceforge_resample_Resample
+ * Method:    resample
+ * Signature: (D[S[SI)I
+ */
+JNIEXPORT jint JNICALL Java_net_sourceforge_resample_Resample_resample
+  (JNIEnv *, jclass, jdouble, jshortArray, jshortArray, jint);
+
+/*
+ * Class:     net_sourceforge_resample_Resample
  * Method:    initialize
  * Signature: (IIII)V
  */
