@@ -96,13 +96,16 @@ JNIEXPORT jint JNICALL Java_net_sourceforge_resample_Resample_process
 	out_len = (*env)->GetArrayLength(env, outputBuffer);
 	in_buf =
 	    (short *)(*env)->GetPrimitiveArrayCritical(env, inputBuffer, 0);
-	out_buf = calloc(out_len, sizeof(short));
+	out_buf =
+	    (short *)(*env)->GetPrimitiveArrayCritical(env, outputBuffer, 0);
 
 	res = resample(rs[channel], in_buf, in_len, out_buf, out_len, isLast);
-	(*env)->SetShortArrayRegion(env, outputBuffer, 0, out_len, out_buf);
-	(*env)->ReleasePrimitiveArrayCritical(env, inputBuffer, in_buf, 0);
+	/* don't bother updating input buffer */
+	(*env)->ReleasePrimitiveArrayCritical(env, inputBuffer, in_buf,
+					      JNI_ABORT);
+	/* do update the output buffer */
+	(*env)->ReleasePrimitiveArrayCritical(env, outputBuffer, in_buf, 0);
 
-	free(out_buf);
 	return res;
 }
 
