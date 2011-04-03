@@ -21,8 +21,9 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301 USA
  */
 
-#define FP_FACTOR 15
-#define FP_MASK ((1 << FP_FACTOR) - 1)
+#define FP_DIGITS 15
+#define FP_FACTOR (1 << FP_DIGITS)
+#define FP_MASK (FP_FACTOR - 1)
 
 #define MAX_HWORD (32767)
 #define MIN_HWORD (-32768)
