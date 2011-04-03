@@ -78,6 +78,11 @@ JNIEXPORT void JNICALL Java_net_sourceforge_resample_Resample_initialize
 	}
 }
 
+JNIEXPORT jdouble JNICALL Java_net_sourceforge_resample_Resample_getFactor
+    (JNIEnv * env, jclass class) {
+	return rs[net_sourceforge_resample_Resample_CHANNEL_MONO]->factor;
+}
+
 JNIEXPORT jint JNICALL Java_net_sourceforge_resample_Resample_process
     (JNIEnv * env, jclass class, jshortArray inputBuffer,
      jshortArray outputBuffer, jint channel, jboolean isLast) {

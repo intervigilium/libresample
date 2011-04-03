@@ -35,6 +35,14 @@ JNIEXPORT void JNICALL Java_net_sourceforge_resample_Resample_initialize
 
 /*
  * Class:     net_sourceforge_resample_Resample
+ * Method:    getFactor
+ * Signature: ()D
+ */
+JNIEXPORT jdouble JNICALL Java_net_sourceforge_resample_Resample_getFactor
+  (JNIEnv *, jclass);
+
+/*
+ * Class:     net_sourceforge_resample_Resample
  * Method:    process
  * Signature: ([S[SIZ)I
  */

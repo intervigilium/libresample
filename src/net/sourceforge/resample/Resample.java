@@ -18,6 +18,8 @@ public class Resample {
 
     public static native void initialize(int inputRate, int outputRate, int bufferSize, int channels);
 
+    public static native double getFactor();
+
     public static native int process(short inputBuffer[], short outputBuffer[], int channel, boolean isLast);
 
     public static native void close();
